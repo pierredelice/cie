@@ -35,20 +35,20 @@ class Modelo_LSTM:
         return np.argmax(vector[0])
 
 
-    class Modelo_BiGru:
+# class Modelo_BiGru:
 
-        path = './bigru'
+#     path = './bigru'
 
-        def __init__(self):
-            self.modelo =  tf.keras.models.load_model(path)
+#     def __init__(self):
+#         self.modelo =  tf.keras.models.load_model(path)
 
-        def prediction(self, texto):
-            new_sequences = tokenizer.texts_to_sequences(texto)
-            new_padded_sequences = pad_sequences(new_sequences, maxlen=max_length, padding='post')
-            predictions = best_model.predict(new_padded_sequences)
-            predicted_classes = np.argmax(predictions, axis=1)
-        
-            return predicted_classes
+#     def prediction(self, texto):
+#         new_sequences = tokenizer.texts_to_sequences(texto)
+#         new_padded_sequences = pad_sequences(new_sequences, maxlen=max_length, padding='post')
+#         predictions = best_model.predict(new_padded_sequences)
+#         predicted_classes = np.argmax(predictions, axis=1)
+    
+#         return predicted_classes
         
 
 
@@ -56,15 +56,15 @@ if __name__=='__main__':
     modelo = Modelo_LSTM()
 
     # ejemplos
-    modelo.prediction('infarto al miocardio')
-    modelo.prediction('infarto')
-    modelo.prediction('tuvo un infarto')
-    modelo.prediction('diabetes')
+    print(modelo.prediction('infarto'))
+    print(modelo.prediction('infarto'))
+    print(modelo.prediction('tuvo un infarto'))
+    print(modelo.prediction('diabetes'))
 
 
-    tk = modelo.tokenizer.texts_to_sequences(['infarto'])
-    vc = modelo.modelo.predict(tk)
-    np.argmax(vc[0]), tk
+    # tk = modelo.tokenizer.texts_to_sequences(['infarto'])
+    # vc = modelo.modelo.predict(tk)
+    # np.argmax(vc[0]), tk
 
-    causas = pd.read_pickle('./seed_data/seedcausa.pkl')
+    # causas = pd.read_pickle('./seed_data/seedcausa.pkl')
 
