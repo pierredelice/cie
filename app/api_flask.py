@@ -6,10 +6,10 @@ from flask_restx import Api, Resource, reqparse
 #import pandas as pd 
 #import numpy as np
 
-#from rf_model import Modelo_LSTM
+from rf_model import Modelo_LSTM
 
 app = Flask(__name__)
-#model = Modelo_LSTM()
+model = Modelo_LSTM()
 
 api = Api(app, version='1.0',
            title='ICD API',
@@ -27,16 +27,16 @@ class HelloWorld(Resource):
         return {'hello': 'API para la codificación de un texto libre en clave ICD'}
 
 
-# @ns.route('/predict',)
-# class Predict(Resource):
-#     @api.doc(parser = parser)
-#     def get(self):
-#         texto = parser.parse_args()
-#         #print(texto['texto'])
-#         causa = int(model.prediction(texto['texto']))
-#         #print(causa)
-#         return jsonify({'texto':texto['texto'], 
-#                         'causa':causa})
+@ns.route('/predict',)
+class Predict(Resource):
+    @api.doc(parser = parser)
+    def get(self):
+        texto = parser.parse_args()
+        #print(texto['texto'])
+        causa = int(model.prediction(texto['texto']))
+        #print(causa)
+        return jsonify({'texto':texto['texto'], 
+                        'causa':causa})
 # @api.route('/get_cie')
 # class HelloWorld(Resource):
 #     def get_cie(self):
