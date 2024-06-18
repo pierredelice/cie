@@ -164,7 +164,7 @@ rpds-py==0.10.6
 ruamel.yaml==0.17.21
 safetensors==0.4.3
 scikit-image==0.23.2
-scikit-learn==1.4.2
+scikit-learn==1.5.0
 scipy==1.13.0
 Send2Trash==1.8.2
 sentence-transformers==2.7.0
